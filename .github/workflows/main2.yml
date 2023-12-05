@@ -9,14 +9,22 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
+        
 
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '14'
       - run: npm install cypress@latest --save-dev
+     
+
       - name: Install Dependencies
         run: npm install
 
       - name: Run Cypress Tests
         run: npm test
+      - name: Install axe-core
+        run: npm install axe-core --save-dev
+      - name: Install webpack
+        run: npm install @cypress/webpack-preprocessor@latest --save-dev
+
