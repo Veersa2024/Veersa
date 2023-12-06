@@ -7,7 +7,7 @@ on:
 
 jobs:
   cypress-run:
-    runs-on: windows-latest  # Specify Windows as the operating system
+    runs-on: ubuntu-latest  # Specify Windows as the operating system
 
     steps:
       - name: Checkout Repository
@@ -16,10 +16,10 @@ jobs:
       - name: Setup Node.js and Install Cypress
         uses: actions/setup-node@v4
         with:
-          node-version: '14'
-
-      - run: npm install cypress@latest --save-dev
-
-      - run: npm install
-
-      - run: npm test
+          node-version: '18.16.0'
+          
+      - name: Run the test cases
+        run: |
+          npm install
+          npx cypress run 
+          
